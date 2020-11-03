@@ -1,9 +1,11 @@
 class Tester {
 	public static void main(String[] args) {
 		SuperArray letters = new SuperArray();
+		System.out.println(letters.isEmpty());
 		letters.add("a");
 		letters.add("b");
 		letters.add("c");
+		System.out.println(letters.toString().equals("[a, b, c]"));
 		letters.add("d");
 		letters.add("e");
 		letters.add("f");
@@ -17,7 +19,11 @@ class Tester {
 		letters.add("j");
 		letters.add("k");
 		letters.add("l");
-		System.out.println(letters.size() == 12);
+		System.out.println(!letters.contains(null));
+		letters.add(null);
+		System.out.println(letters.size() == 13);
 		System.out.println(letters.get(11).equals("l"));
+		System.out.println(letters.contains("k"));
+		System.out.println(letters.contains(null));
 	}
 }
