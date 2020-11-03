@@ -1,3 +1,4 @@
+import java.util.Arrays;
 class Tester {
 	public static void main(String[] args) {
 		SuperArray letters = new SuperArray();
@@ -25,5 +26,16 @@ class Tester {
 		System.out.println(letters.get(11).equals("l"));
 		System.out.println(letters.contains("k"));
 		System.out.println(letters.contains(null));
+		letters.add(11, "q");
+		System.out.println(letters.get(12).equals("l"));
+		System.out.println(letters.get(11).equals("q"));
+		System.out.println(letters.remove(11).equals("q"));
+		System.out.println(letters.get(11).equals("l"));
+		System.out.println(letters.indexOf("l") == 11);
+		System.out.println(letters.indexOf(null) == 12);
+		System.out.println(letters.toString());
+		System.out.println(Arrays.toString(letters.toArray()));
+		letters.clear();
+		System.out.println(letters.size() == 0);
 	}
 }

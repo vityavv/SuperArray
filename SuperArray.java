@@ -5,6 +5,10 @@ class SuperArray {
 		data = new String[10];
 		size = 0;
 	}
+	public SuperArray(int initialCapacity) {
+		data = new String[initialCapacity];
+		size = 0;
+	}
 	public int size() {
 		return size;
 	}
@@ -22,8 +26,28 @@ class SuperArray {
 		data[index] = element;
 		return replaced;
 	}
+	public void add(int index, String element) {
+		if (data.length == size) resize();
+		for (int i = size; i > index; i--) {
+			data[i] = data[i - 1];
+		}
+		data[index] = element;
+		size++;
+	}
+	public String remove(int index) {
+		String removing = data[index];
+		for (int i = index; i < size - 1; i++) {
+			data[i] = data[i+1];
+		}
+		size--;
+		return removing;
+	}
+	public void clear() {
+		data = new String[size];
+		size = 0;
+	}
 	private void resize() {
-		String[] newData = new String[data.length + 1];
+		String[] newData = new String[data.length * 2];
 		for (int i = 0; i < data.length; i++) newData[i] = data[i];
 		data = newData;
 	}
@@ -38,10 +62,23 @@ class SuperArray {
 		}
 		return result + data[size - 1] + "]";
 	}
+	public String[] toArray() {
+		String[] result = new String[size];
+		for (int i = 0; i < size; i++) {
+			result[i] = data[i];
+		}
+		return result;
+	}
 	public boolean contains(String s) {
 		for (int i = 0; i < size; i++) {
 			if (data[i] == s || s != null && data[i].equals(s)) return true;
 		}
 		return false;
+	}
+	public int indexOf(String s) {
+		for (int i = 0; i < size; i++) {
+			if (data[i] == s || s != null && data[i].equals(s)) return i;
+		}
+		return -1;
 	}
 }
