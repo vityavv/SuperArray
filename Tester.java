@@ -35,6 +35,16 @@ class Tester {
 		System.out.println(letters.indexOf(null) == 12);
 		System.out.println(letters.toString());
 		System.out.println(Arrays.toString(letters.toArray()));
+
+		SuperArray b = new SuperArray();
+		b.add("a");b.add("4");b.add("l");b.add("4");
+		System.out.println(b.toString());
+		SuperArray.removeDuplicates(b);
+		System.out.println(b.toString());
+		System.out.println(SuperArray.findOverlap(letters, b).toString());
+		System.out.println(SuperArray.findOverlap(b, letters).toString());
+		System.out.println(letters.contains("a"));
+		System.out.println(letters.contains(b.get(0)));
 		letters.clear();
 		System.out.println(letters.size() == 0);
 	}
