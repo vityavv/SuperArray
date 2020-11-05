@@ -47,5 +47,12 @@ class Tester {
 		System.out.println(letters.contains(b.get(0)));
 		letters.clear();
 		System.out.println(letters.size() == 0);
+		SuperArray c = new SuperArray();
+		c.add("a");c.add(null);c.add("4");c.add("l");c.add("4");
+		SuperArray d = new SuperArray();
+		d.add("a");d.add(null);d.add("4");d.add("l");d.add("4");
+		System.out.println(!letters.equals(b));
+		System.out.println(d.equals(c));
+		System.out.println(d.lastIndexOf("4") == 4);
 	}
 }

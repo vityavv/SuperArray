@@ -81,10 +81,26 @@ class SuperArray {
 		}
 		return -1;
 	}
+	public int lastIndexOf(String s) {
+		for (int i = size - 1; i >= 0; i++) {
+			if (data[i] == s || s != null && data[i].equals(s)) return i;
+		}
+		return -1;
+	}
+	public boolean equals(SuperArray other) {
+		if (other.size() != size) return false;
+		for (int i = 0; i < size; i++) {
+			if (!(other.get(i) == data[i] || other.get(i) != null && other.get(i).equals(data[i]))) return false;
+		}
+		return true;
+	}
 
 	public static void removeDuplicates(SuperArray s) {
 		for (int i = 0; i < s.size(); i++) {
-			if (i != s.indexOf(s.get(i))) s.remove(i);
+			if (i != s.indexOf(s.get(i))) {
+				s.remove(i);
+				i--;
+			}
 		}
 	}
 	public static SuperArray findOverlap(SuperArray a, SuperArray b) {
