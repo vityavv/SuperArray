@@ -55,5 +55,39 @@ class Tester {
 		System.out.println(d.equals(c));
 		System.out.println(d.lastIndexOf("4") == 4);
 		System.out.println(Demo.zip(c, d).toString());
+
+		try {
+			SuperArray fart = new SuperArray(-1);
+			System.out.println("false");
+		} catch (IllegalArgumentException e) {
+			System.out.println("true");
+		}
+		SuperArray fart = new SuperArray(100);
+		fart.add("a");
+		try {
+			System.out.println(fart.get(1));
+			System.out.println("false");
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("true");
+		}
+		try {
+			System.out.println(fart.set(1, "b"));
+			System.out.println("false");
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("true");
+		}
+		System.out.println(fart.toString());
+		try {
+			fart.add(1, "b");
+			System.out.println("false");
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("true");
+		}
+		try {
+			System.out.println(fart.remove(1));
+			System.out.println("false");
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("true");
+		}
 	}
 }
