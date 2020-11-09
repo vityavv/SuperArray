@@ -39,10 +39,10 @@ class Tester {
 		SuperArray b = new SuperArray();
 		b.add("a");b.add("4");b.add("l");b.add("4");
 		System.out.println(b.toString());
-		SuperArray.removeDuplicates(b);
+		Demo.removeDuplicates(b);
 		System.out.println(b.toString());
-		System.out.println(SuperArray.findOverlap(letters, b).toString());
-		System.out.println(SuperArray.findOverlap(b, letters).toString());
+		System.out.println(Demo.findOverlap(letters, b).toString());
+		System.out.println(Demo.findOverlap(b, letters).toString());
 		System.out.println(letters.contains("a"));
 		System.out.println(letters.contains(b.get(0)));
 		letters.clear();
@@ -54,5 +54,6 @@ class Tester {
 		System.out.println(!letters.equals(b));
 		System.out.println(d.equals(c));
 		System.out.println(d.lastIndexOf("4") == 4);
+		System.out.println(Demo.zip(c, d).toString());
 	}
 }
