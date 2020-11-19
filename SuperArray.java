@@ -35,7 +35,7 @@ class SuperArray {
 		return replaced;
 	}
 	public void add(int index, String element) {
-		if (index >= size) {
+		if (index > size) {
 			throw new IndexOutOfBoundsException("Index " + index + " out of bounds for SuperArray with size " + size);
 		}
 		if (data.length == size) resize();
